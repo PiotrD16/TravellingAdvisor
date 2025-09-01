@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Travelling Advisor</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Travelling Advisor - Welcome Page</h1>
+    <h2>Choose what you want to do:</h2>
+
+    <button onclick="getAllPlaces()">Show all places</button>
+    <button onclick="showForm('add')">Add new place</button>
+
+    <!-- FORMULARZ DODAWANIA MIEJSC -->
+    <div id="placeFormContainer" style="display:none;">
+        <h3 id="formTitle">Add Place</h3>
+        <form id="placeForm" onsubmit="submitPlace(event)">
+            <input type="hidden" id="placeId">
+            <label>
+                Name: <input type="text" id="placeName" required>
+            </label>
+            <label>
+                Description: <input type="text" id="placeOpis" required>
+            </label>
+            <label>
+                Country Name: <input type="text" id="countryName" required>
+            </label>
+            <label>
+                City Name: <input type="text" id="cityName" required>
+            </label>
+            <button type="submit">Save</button>
+        </form>
+
+        <!-- PRZYCISK DODAWANIA MIASTA -->
+        <div style="margin-top: 15px; display: flex; justify-content: center;">
+            <button type="button" onclick="showCityForm()">Add new city</button>
+        </div>
+    </div>
+
+    <!-- FORMULARZ DODAWANIA MIASTA -->
+    <div id="cityFormContainer" style="display:none;">
+        <h3>Add City</h3>
+        <form id="cityForm" onsubmit="submitCity(event)">
+            <label>
+                City Name: <input type="text" id="cityNameInput" required>
+            </label>
+            <label>
+                Country Name: <input type="text" id="countryNameInput" required>
+            </label>
+            <button type="submit">Save City</button>
+        </form>
+    </div>
+
+    <h2>Places:</h2>
+    <ul id="placesList"></ul>
+
+    <div id="responseMsg"></div>
+
+    <script src="/script.js"></script>
+</body>
+</html>
